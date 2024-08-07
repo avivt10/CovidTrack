@@ -1,3 +1,4 @@
+// TODO - Do you need all that types ?
 export interface dataTypeModel {
     active: string;
     activePerOneMillion: string;

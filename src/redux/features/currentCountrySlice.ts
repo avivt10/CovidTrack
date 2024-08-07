@@ -5,6 +5,7 @@ const initialState: CurrentCountryState = {
   currentCountry: "",
 };
 
+// TODO - redundant can be remove and move to dataCountrySlice
 const currentCountrySlice = createSlice({
   name: "currentCountry",
   initialState: initialState,

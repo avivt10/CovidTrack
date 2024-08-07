@@ -10,6 +10,39 @@ const Main = () => {
   );
   
   const data = useAppSelector((state) => state.dataCountrySlice.dataCountry);
+  // TODO - example to config file
+  // uncomment once you read it 
+
+  // type IStatisticsCircleVariablesModel = {
+  //   value: string;
+  //   text: string;
+  //   color: '#007BFF' | 'green' | '#28A745' | 'red';
+  // }
+
+  // const statisticsCircleVariablesConfig: IStatisticsCircleVariablesModel[] = [
+  //   {
+  //     value: formatNumber(parseInt(data.cases)),
+  //     color: '#007BFF',
+  //     text: 'total Cases'
+  //   },
+  //   {
+  //     value: formatNumber(parseInt(data.active)),
+  //     color: 'green',
+  //     text: 'active Cases'
+  //   },
+  //   {
+  //     value: formatNumber(parseInt(data.todayCases)),
+  //     color: '#28A745',
+  //     text: 'new Cases Today'
+  //   },
+  //   {
+  //     value: formatNumber(parseInt(data.deaths)),
+  //     color: 'red',
+  //     text: 'deaths'
+  //   },
+  // ] 
+
+  // TODO - redundant can remove 
   const totalCases = formatNumber(parseInt(data.cases));
   const activeCases = formatNumber(parseInt(data.active));
   const newCasesToday = formatNumber(parseInt(data.todayCases));
@@ -20,17 +53,32 @@ const Main = () => {
       {currentCountry !== "" ? (
         <div className="mainContainer">
           <img
+            // TODO - move /src/assets/image/covid.png to variable, like: IMG_SOURCE = "/src/assets/image/covid.png"
             src="/src/assets/image/covid.png"
             className="covidImgSpin"
+            // TODO - width and height should place in variable IMG_HEIGHT=50
             width={50}
             height={50}
           />
 
           <p className="title">
+            {/* TODO - wrap COVID-19 in <span class="pr-2"> */}
+            {/* remove " " */}
             COVID-19{" "}
             {currentCountry !== "" && currentCountry + ` - ${data.continent}`}
           </p>
 
+          {/* TODO - use map and store value, text, color in config prop */}
+          {/* {statisticsCircleVariablesConfig.map(statisticVal => (
+                      <StatisticsCircle
+                      key={statisticVal.value}
+                      value={statisticVal.value}
+                      text={statisticVal.text}
+                      color={statisticVal.color}
+                    />
+          ))} */}
+
+          {/* TODO - can remove */}
           <StatisticsCircle
             value={totalCases}
             text="total Cases"

@@ -5,6 +5,8 @@ interface dataCountryState {
     dataCountry: dataTypeModel;
 }
 
+// TODO - why do you need to store all that data ???
+// which props are u using ? remove all the unnecessary variables please 
 const initialState: dataCountryState = {
     dataCountry: {
     active: "",

@@ -1,56 +1,40 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { dataTypeModel } from "../models/dataTypeModel";
+import { IDataCountryModel } from "../models/dataCountryModel";
+import { IDataCountryStateModel } from "../models/dataCountryState";
 
-interface dataCountryState {
-    dataCountry: dataTypeModel;
-}
 
-const initialState: dataCountryState = {
-    dataCountry: {
-    active: "",
-    activePerOneMillion: "",
-    cases: "",
-    casesPerOneMillion: "",
-    continent: "",
-    country: "", 
-    id: "",
-    lat: "",
-    long: "",
-    critical: "",
-    criticalPerOneMillion: "",
-    deaths: "",
-    deathsPerOneMillion:"",
-    oneCasePerPeople: "",
-    oneDeathPerPeople: "",
-    oneTestPerPeople: "",
-    population: "",
-    recovered: "",
-    recoveredPerOneMillion: "",
-    tests: "",
-    testsPerOneMillion: "",
-    todayCases: "",
-    todayDeaths: "",
-    todayRecovered: "",
-    updated: ""
-    },
-  };
+const initialState: IDataCountryStateModel = {
+  dataCountry: {
+      active: "",
+      cases: "",
+      deaths: "",
+      todayCases: "",
+      continent: ""  
+  },
+  currentCountry: ""
+};
+
 
 const dataCountrySlice = createSlice({
-    name: "dataCountry",
-    initialState: initialState,
-  
-    // actions to change the state
-    reducers: {
-      dataCountry: (
-        state: dataCountryState,
-        action: PayloadAction<dataTypeModel>
+  name: "dataCountry",
+  initialState,
+  reducers: {
+      setDataCountry: (
+          state: IDataCountryStateModel,
+          action: PayloadAction<IDataCountryModel>
       ) => {
-        state.dataCountry = action.payload;
+          state.dataCountry = action.payload;
       },
-    },
-  });
+      setCurrentCountry: (
+          state: IDataCountryStateModel,
+          action: PayloadAction<string>
+      ) => {
+          state.currentCountry = action.payload;
+      }
+  }
+});
   
-  export const { dataCountry } = dataCountrySlice.actions;
+  export const { setDataCountry,setCurrentCountry } = dataCountrySlice.actions;
   export default dataCountrySlice.reducer;
     
   

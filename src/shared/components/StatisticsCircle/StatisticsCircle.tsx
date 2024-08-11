@@ -1,15 +1,12 @@
 import React from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css'; // נייבא את ה-CSS הבסיסי
+import 'react-circular-progressbar/dist/styles.css';
 import "./StatisticsCircle.css"
+import { IStatisticsCircleModel } from './models/statisticsCircleModel';
 
-interface StatisticsCircleProps {
-  value: string;
-  text: string;
-  color?: string;
-}
 
-const StatisticsCircle: React.FC<StatisticsCircleProps> = ({ value, text, color = '#4CAF50' }) => {
+
+const StatisticsCircle: React.FC<IStatisticsCircleModel> = ({ value, text, color = '#4CAF50' }) => {
   
   return (
     <div className='circleStyle'>
